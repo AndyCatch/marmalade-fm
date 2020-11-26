@@ -5,9 +5,9 @@ import PlayMix from './PlayMix'
 
 const Archive = ({ mixes, ...props }) => (
   <ul className="list pl0 archive mv0 pad-bottom">
-    {mixes.map((mix) => (
+    {mixes.map((mix, index) => (
       <li className="ph3 ph4-l">
-        <PlayMix {...props} id={mix.key}>
+        <PlayMix {...props} id={mix.key} key={index}>
           <div className="pv3 bb b--light-gray flex justify-between items center">
             <h1 className="f6 mv0 black ttu biryani pr2">{mix.name}</h1>
             <PlayButton />

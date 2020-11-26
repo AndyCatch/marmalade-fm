@@ -6,6 +6,7 @@ import Header from './Header'
 import Home from './Home'
 import Archive from './Archive'
 import About from './About'
+import Show from './Show'
 
 // pull in mix data
 import mixesData from '../data/mixes'
@@ -34,8 +35,6 @@ class App extends Component {
       try {
         const response = await fetch(`https://api.mixcloud.com/${id}`)
         const data = await response.json()
-        console.log('data:' + data)
-
         this.setState((prevState, props) => ({
           mixes: [...prevState.mixes, data],
         }))
@@ -133,6 +132,14 @@ class App extends Component {
                 render={() => <Archive {...this.state} {...this.actions} />}
               />
               <Route path="/about" render={() => <About {...this.state} />} />
+
+              {/* <Show /> */}
+              <Route
+                path="/show/:slug"
+                render={(routeParams) => (
+                  <Show {...routeParams} {...this.state} />
+                )}
+              />
             </div>
           </div>
           {/* Audio Player */}
