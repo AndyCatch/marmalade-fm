@@ -1,30 +1,19 @@
 import React from 'react'
-import Counter from './Counter'
-
-const Stat = ({ statName, statNumber, statWord, ...props }) => (
-  <div className="mb4">
-    <div className="f5 black mb0 b">{statName}</div>
-
-    <Counter end={statNumber} duration={2} />
-
-    <div className="f4 lh-1">{statWord}</div>
-  </div>
-)
+import { connect } from 'react-redux'
+import Stat from './Stat'
 
 const About = ({ mixes }) => (
-  <div className="measure center">
-    <div className="lh-copy mb4">
+  <div className="ph4 ph4-l pad-bottom">
+    <div className="measure center lh-copy">
       <p className="mt0">
         Marmalade.fm features the latest and greatest in grooves, beats and
         world music.
       </p>
-      <p>
+      <p className="mb4">
         Whether you’re into hip hop, trip hop, classic jazz, fusion jazz, afro
         beat or break beat… we have you covered!
       </p>
-    </div>
 
-    <div className="">
       <Stat
         statName="Featuring..."
         statNumber={mixes.length}
@@ -51,4 +40,5 @@ const About = ({ mixes }) => (
   </div>
 )
 
-export default About
+// here we connect our component to the Redux state
+export default connect((state) => state)(About)
