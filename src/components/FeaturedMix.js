@@ -15,6 +15,7 @@ const FeaturedMix = ({ name, pictures = {}, ...props }) => (
         <PlayButton />
       </div>
     </PlayMix>
+    {/* <p>{console.log(pictures)}</p> */}
   </div>
 )
 
